@@ -10,7 +10,6 @@ public interface FluidGroup<T extends FluidGroup<T>> extends FluidRegion<T> {
     @SuppressWarnings("unchecked")
     default T withChildren(Node...children) {
         getSelf().getChildren().addAll(children);
-
         return (T) this;
     }
 }

@@ -316,7 +316,6 @@ public interface FluidFX<T extends FluidFX<T>> {
         return (T) this;
     }
 
-
     // SECTION: focus and event handling
 
 

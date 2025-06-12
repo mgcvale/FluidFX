@@ -1,5 +1,6 @@
 package dev.mgcvale.fluidfx.components.layout;
 
+import dev.mgcvale.fluidfx.components.core.BoxType;
 import javafx.beans.binding.DoubleBinding;
 import javafx.geometry.Insets;
 import javafx.scene.layout.HBox;
@@ -9,15 +10,13 @@ import javafx.scene.layout.VBox;
 
 public class Spacers {
 
+    public static Region hSpacer() {
+        return hSpacer(Priority.ALWAYS);
+    }
+
     public static Region hSpacer(Priority p) {
         Region spacer = new Region();
-
-        if(p != null) {
-            HBox.setHgrow(spacer, p);
-        } else {
-            HBox.setHgrow(spacer, Priority.NEVER);
-        }
-
+        HBox.setHgrow(spacer, p);
         return spacer;
     }
 
@@ -48,17 +47,25 @@ public class Spacers {
     }
 
 
+    public static Region vSpacer() {
+        return vSpacer(Priority.ALWAYS);
+    }
+
     public static Region vSpacer(Priority p) {
         Region spacer = new Region();
-
-        if(p != null) {
-            VBox.setVgrow(spacer, p);
-        } else {
-            VBox.setVgrow(spacer, Priority.NEVER);
-        }
-
+        VBox.setVgrow(spacer, p);
         return spacer;
     }
 
+    public static Region fromType(BoxType type, Priority p) {
+        return switch (type) {
+            case HORIZONTAL -> hSpacer(p);
+            case VERTICAL -> vSpacer(p);
+        };
+    }
+
+    public static Region fromType(BoxType type) {
+        return fromType(type, Priority.ALWAYS);
+    }
 
 }
