@@ -13,126 +13,125 @@ import javafx.scene.layout.Region;public interface FluidRegion<T extends FluidRe
 
     // observers
     @SuppressWarnings("unchecked")
-    default T watchWidthProperty(DoubleProperty observer) {
+    default T outWidthProperty(DoubleProperty observer) {
         observer.bind(getSelf().widthProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchHeightProperty(DoubleProperty observer) {
+    default T outHeightProperty(DoubleProperty observer) {
         observer.bind(getSelf().heightProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchMinWidthProperty(DoubleProperty observer) {
+    default T outMinWidthProperty(DoubleProperty observer) {
         observer.bind(getSelf().minWidthProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchMinHeightProperty(DoubleProperty observer) {
+    default T outMinHeightProperty(DoubleProperty observer) {
         observer.bind(getSelf().minHeightProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchPrefWidthProperty(DoubleProperty observer) {
+    default T outPrefWidthProperty(DoubleProperty observer) {
         observer.bind(getSelf().prefWidthProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchPrefHeightProperty(DoubleProperty observer) {
+    default T outPrefHeightProperty(DoubleProperty observer) {
         observer.bind(getSelf().prefHeightProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchMaxWidthProperty(DoubleProperty observer) {
+    default T outMaxWidthProperty(DoubleProperty observer) {
         observer.bind(getSelf().maxWidthProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchMaxHeightProperty(DoubleProperty observer) {
+    default T outMaxHeightProperty(DoubleProperty observer) {
         observer.bind(getSelf().maxHeightProperty());
         return (T) this;
     }
 
     // bindings
     @SuppressWarnings("unchecked")
-    default T bindMinWidth(DoubleBinding binding) {
+    default T inMinWidth(DoubleBinding binding) {
         getSelf().minWidthProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindMinHeight(DoubleBinding binding) {
+    default T inMinHeight(DoubleBinding binding) {
         getSelf().minHeightProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindPrefWidth(DoubleBinding binding) {
+    default T inPrefWidth(DoubleBinding binding) {
         getSelf().prefWidthProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindPrefHeight(DoubleBinding binding) {
+    default T inPrefHeight(DoubleBinding binding) {
         getSelf().prefHeightProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindMaxWidth(DoubleBinding binding) {
+    default T inMaxWidth(DoubleBinding binding) {
         getSelf().maxWidthProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindMaxHeight(DoubleBinding binding) {
+    default T inMaxHeight(DoubleBinding binding) {
         getSelf().maxHeightProperty().bind(binding);
         return (T) this;
     }
 
     // setters
     @SuppressWarnings("unchecked")
-    default T withMinWidth(double minWidth) {
+    default T wMinWidth(double minWidth) {
         getSelf().setMinWidth(minWidth);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withMinHeight(double minHeight) {
+    default T wMinHeight(double minHeight) {
         getSelf().setMinHeight(minHeight);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withPrefWidth(double prefWidth) {
+    default T wPrefWidth(double prefWidth) {
         getSelf().setPrefWidth(prefWidth);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withPrefHeight(double prefHeight) {
+    default T wPrefHeight(double prefHeight) {
         getSelf().setPrefHeight(prefHeight);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withMaxWidth(double maxWidth) {
+    default T wMaxWidth(double maxWidth) {
         getSelf().setMaxWidth(maxWidth);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withMaxHeight(double maxHeight) {
+    default T wMaxHeight(double maxHeight) {
         getSelf().setMaxHeight(maxHeight);
         return (T) this;
     }
 
     // padding
     @SuppressWarnings("unchecked")
-    default T withPadding(Insets padding) {
+    default T wPadding(Insets padding) {
         getSelf().setPadding(padding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindPadding(ObjectProperty<Insets> paddingBinding) {
+    default T inPadding(ObjectProperty<Insets> paddingBinding) {
         getSelf().paddingProperty().bind(paddingBinding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchPadding(ObjectProperty<Insets> observer) {
+    default T outPadding(ObjectProperty<Insets> observer) {
         observer.bind(getSelf().paddingProperty());
         return (T) this;
     }
-
 
 }

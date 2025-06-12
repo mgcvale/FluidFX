@@ -17,7 +17,7 @@ public class VGroup extends VBox implements FluidGroup<VGroup>, FluidBox {
     }
 
     @Override
-    public VGroup withChildren(Node... children) {
+    public VGroup wChildren(Node... children) {
         getChildren().addAll(
                 BoxUtils.buildChildren(this, children)
         );
@@ -46,7 +46,7 @@ public class VGroup extends VBox implements FluidGroup<VGroup>, FluidBox {
     }
 
 
-    public VGroup withSpacing(double spacing) {
+    public VGroup wSpacing(double spacing) {
         setSpacing(spacing);
         return this;
     }

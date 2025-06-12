@@ -6,33 +6,33 @@ import javafx.beans.property.StringProperty;
 import javafx.scene.control.Control;
 import javafx.scene.control.TextArea;
 
-public class FluidTextArea extends TextArea implements FluidControl<FluidTextArea> {
+public class FTextArea extends TextArea implements FluidControl<FTextArea> {
     @Override
     public Control getSelf() {
         return this;
     }
 
-    public FluidTextArea() {
+    public FTextArea() {
         super();
     }
 
-    public FluidTextArea withPrompt(String prompt) {
+    public FTextArea withPrompt(String prompt) {
         setPromptText(prompt);
         return this;
     }
 
     // text properties
-    public FluidTextArea withText(String text) {
+    public FTextArea wText(String text) {
         setText(text);
         return this;
     }
 
-    public FluidTextArea bindTextProperty(StringBinding stringBinding) {
+    public FTextArea inText(StringBinding stringBinding) {
         textProperty().bind(stringBinding);
         return this;
     }
 
-    public FluidTextArea watchTextProperty(StringProperty observer) {
+    public FTextArea outText(StringProperty observer) {
         observer.bind(textProperty());
         return this;
     }

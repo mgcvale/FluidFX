@@ -27,13 +27,13 @@ public interface FluidFX<T extends FluidFX<T>> {
 
     // SECTION: CSS
     @SuppressWarnings("unchecked")
-    default T withStyleClass(String ...classes) {
+    default T wStyleClass(String ...classes) {
         getSelf().getStyleClass().addAll(classes);
         return (T) this;
     }
 
     @SuppressWarnings("unchecked")
-    default T withStyle(String style) {
+    default T wStyle(String style) {
         getSelf().setStyle(getSelf().getStyle().concat(" " + style));
         return (T) this;
     }
@@ -41,40 +41,40 @@ public interface FluidFX<T extends FluidFX<T>> {
     // SECTION: layout
     // V and H box specific methods
     @SuppressWarnings("unchecked")
-    default T withVgrow(Priority p) {
+    default T wVgrow(Priority p) {
         VBox.setVgrow(getSelf(), p);
         return (T) this;
     }
 
     @SuppressWarnings("unchecked")
-    default T withHgrow(Priority p) {
+    default T wHgrow(Priority p) {
         HBox.setHgrow(getSelf(), p);
         return (T) this;
     }
 
     @SuppressWarnings("unchecked")
-    default T withVboxMargin(Insets margin) {
+    default T wVboxMargin(Insets margin) {
         VBox.setMargin(getSelf(), margin);
         return (T) this;
     }
 
     @SuppressWarnings("unchecked")
-    default T withHboxMargin(Insets margin) {
+    default T wHboxMargin(Insets margin) {
         HBox.setMargin(getSelf(), margin);
         return (T) this;
     }
 
-    default T hGrow() {
-        return withHgrow(Priority.ALWAYS);
+    default T hgrow() {
+        return wHgrow(Priority.ALWAYS);
     }
 
-    default T vGrow() {
-        return withVgrow(Priority.ALWAYS);
+    default T vgrow() {
+        return wVgrow(Priority.ALWAYS);
     }
 
     // BorderPane specific methods
     @SuppressWarnings("unchecked")
-    default T withBorderPaneAlignment(Pos pos) {
+    default T wBorderPaneAlignment(Pos pos) {
         BorderPane.setAlignment(getSelf(), pos);
         return (T) this;
     }
@@ -96,39 +96,39 @@ public interface FluidFX<T extends FluidFX<T>> {
 
     // SECTION: layout/translate/rotate properties
 
-    // withs
+    // ws
     @SuppressWarnings("unchecked")
-    default T withTranslateX(double x) {
+    default T wTranslateX(double x) {
         getSelf().setTranslateX(x);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withTranslateY(double y) {
+    default T wTranslateY(double y) {
         getSelf().setTranslateY(y);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withLayoutX(double x) {
+    default T wLayoutX(double x) {
         getSelf().setLayoutX(x);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withLayoutY(double y) {
+    default T wLayoutY(double y) {
         getSelf().setLayoutY(y);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withRotate(double r) {
+    default T wRotate(double r) {
         getSelf().setRotate(r);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withScaleX(double x) {
+    default T wScaleX(double x) {
         getSelf().setScaleX(x);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withScaleY(double y) {
+    default T wScaleY(double y) {
         getSelf().setScaleY(y);
         return (T) this;
     }
@@ -136,37 +136,37 @@ public interface FluidFX<T extends FluidFX<T>> {
 
     // watchers
     @SuppressWarnings("unchecked")
-    default T watchTranslateXProperty(DoubleProperty observer) {
+    default T outTranslateXProperty(DoubleProperty observer) {
         observer.bind(getSelf().translateXProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchTranslateYProperty(DoubleProperty observer) {
+    default T outTranslateYProperty(DoubleProperty observer) {
         observer.bind(getSelf().translateYProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchLayoutXProperty(DoubleProperty observer) {
+    default T outLayoutXProperty(DoubleProperty observer) {
         observer.bind(getSelf().layoutXProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchLayoutYProperty(DoubleProperty observer) {
+    default T outLayoutYProperty(DoubleProperty observer) {
         observer.bind(getSelf().layoutYProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchRotateProperty(DoubleProperty observer) {
+    default T outRotateProperty(DoubleProperty observer) {
         observer.bind(getSelf().rotateProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchScaleXProperty(DoubleProperty observer) {
+    default T outScaleXProperty(DoubleProperty observer) {
         observer.bind(getSelf().scaleXProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchScaleYProperty(DoubleProperty observer) {
+    default T outScaleYProperty(DoubleProperty observer) {
         observer.bind(getSelf().scaleYProperty());
         return (T) this;
     }
@@ -174,91 +174,91 @@ public interface FluidFX<T extends FluidFX<T>> {
 
     // bindings
     @SuppressWarnings("unchecked")
-    default T bindTranslateX(DoubleBinding binding) {
+    default T inTranslateX(DoubleBinding binding) {
         getSelf().translateXProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindTranslateY(DoubleBinding binding) {
+    default T inTranslateY(DoubleBinding binding) {
         getSelf().translateYProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindLayoutX(DoubleBinding binding) {
+    default T inLayoutX(DoubleBinding binding) {
         getSelf().layoutXProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindLayoutY(DoubleBinding binding) {
+    default T inLayoutY(DoubleBinding binding) {
         getSelf().layoutYProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindRotate(DoubleBinding binding) {
+    default T inRotate(DoubleBinding binding) {
         getSelf().rotateProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindScaleX(DoubleBinding binding) {
+    default T inScaleX(DoubleBinding binding) {
         getSelf().scaleXProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindScaleY(DoubleBinding binding) {
+    default T inScaleY(DoubleBinding binding) {
         getSelf().scaleYProperty().bind(binding);
         return (T) this;
     }
 
     // SECTION: general component properties: visibility, managed, disabled
 
-    // withs
+    // ws
 
     @SuppressWarnings("unchecked")
-    default T withVisible(boolean visible) {
+    default T wVisible(boolean visible) {
         getSelf().setVisible(visible);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withManaged(boolean managed) {
+    default T wManaged(boolean managed) {
         getSelf().setManaged(managed);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withDisable(boolean disable) {
+    default T wDisable(boolean disable) {
         getSelf().setDisable(disable);
         return (T) this;
     }
 
     // getters
     @SuppressWarnings("unchecked")
-    default T watchVisibleProperty(BooleanProperty observer) {
+    default T outVisibleProperty(BooleanProperty observer) {
         observer.bind(getSelf().visibleProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchManagedProperty(BooleanProperty observer) {
+    default T outManagedProperty(BooleanProperty observer) {
         observer.bind(getSelf().managedProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchDisableProperty(BooleanProperty observer) {
+    default T outDisableProperty(BooleanProperty observer) {
         observer.bind(getSelf().disableProperty());
         return (T) this;
     }
 
     // bindings
     @SuppressWarnings("unchecked")
-    default T bindVisible(BooleanBinding binding) {
+    default T inVisible(BooleanBinding binding) {
         getSelf().visibleProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindManaged(BooleanBinding binding) {
+    default T inManaged(BooleanBinding binding) {
         getSelf().managedProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindDisable(BooleanBinding binding) {
+    default T inDisable(BooleanBinding binding) {
         getSelf().disableProperty().bind(binding);
         return (T) this;
     }
@@ -267,29 +267,29 @@ public interface FluidFX<T extends FluidFX<T>> {
 
     // setters
     @SuppressWarnings("unchecked")
-    default T withOpacity(double opacity) {
+    default T wOpacity(double opacity) {
         getSelf().setOpacity(opacity);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withEffect(Effect effect) {
+    default T wEffect(Effect effect) {
         getSelf().setEffect(effect);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T withCursor(Cursor cursor) {
+    default T wCursor(Cursor cursor) {
         getSelf().setCursor(cursor);
         return (T) this;
     }
 
     // getters
     @SuppressWarnings("unchecked")
-    default T watchOpacityProperty(DoubleProperty observer) {
+    default T outOpacityProperty(DoubleProperty observer) {
         observer.bind(getSelf().opacityProperty());
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T watchEffectProperty(ObjectProperty<Effect> observer) {
+    default T outEffectProperty(ObjectProperty<Effect> observer) {
         observer.bind(getSelf().effectProperty());
         return (T) this;
     }
@@ -301,17 +301,17 @@ public interface FluidFX<T extends FluidFX<T>> {
 
     // bindings
     @SuppressWarnings("unchecked")
-    default T bindOpacity(DoubleBinding binding) {
+    default T inOpacity(DoubleBinding binding) {
         getSelf().opacityProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindEffect(ObjectBinding<Effect> binding) {
+    default T inEffect(ObjectBinding<Effect> binding) {
         getSelf().effectProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T bindCursor(ObjectBinding<Cursor> binding) {
+    default T inCursor(ObjectBinding<Cursor> binding) {
         getSelf().cursorProperty().bind(binding);
         return (T) this;
     }
@@ -321,19 +321,19 @@ public interface FluidFX<T extends FluidFX<T>> {
 
     // focusTraversable
     @SuppressWarnings("unchecked")
-    default T withFocusTraversable(boolean value) {
+    default T wFocusTraversable(boolean value) {
         getSelf().setFocusTraversable(value);
         return (T) this;
     }
 
     @SuppressWarnings("unchecked")
-    default T watchFocusTraversable(BooleanProperty observer) {
+    default T outFocusTraversable(BooleanProperty observer) {
         observer.bind(getSelf().focusTraversableProperty());
         return (T) this;
     }
 
     @SuppressWarnings("unchecked")
-    default T bindFocusTraversable(BooleanBinding binding) {
+    default T inFocusTraversable(BooleanBinding binding) {
         getSelf().focusTraversableProperty().bind(binding);
         return (T) this;
     }
@@ -347,7 +347,7 @@ public interface FluidFX<T extends FluidFX<T>> {
     }
 
     @SuppressWarnings("unchecked")
-    default T withOnKeyPressed(EventHandler<? super KeyEvent> handler) {
+    default T onKeyPressed(EventHandler<? super KeyEvent> handler) {
         getSelf().setOnKeyPressed(handler);
         return (T) this;
     }
@@ -355,13 +355,13 @@ public interface FluidFX<T extends FluidFX<T>> {
 
     //  generic onEvent (for any event type)
     @SuppressWarnings("unchecked")
-    default <E extends Event> T withEventHandler(EventType<E> type, EventHandler<E> handler) {
+    default <E extends Event> T wEventHandler(EventType<E> type, EventHandler<E> handler) {
         getSelf().addEventHandler(type, handler);
         return (T) this;
     }
 
     @SuppressWarnings("unchecked")
-    default <E extends Event> T withoutEventHandler(EventType<E> type, EventHandler<? super E> handler) {
+    default <E extends Event> T woutEventHandler(EventType<E> type, EventHandler<? super E> handler) {
         getSelf().removeEventHandler(type, handler);
         return (T) this;
     }

@@ -18,14 +18,14 @@ public class HGroup extends HBox implements FluidGroup<HGroup>, FluidBox {
     }
 
     @Override
-    public HGroup withChildren(Node... children) {
+    public HGroup wChildren(Node... children) {
         getChildren().addAll(
                 BoxUtils.buildChildren(this, children)
         );
         return this;
     }
 
-    public HGroup withSpacing(double spacing) {
+    public HGroup wSpacing(double spacing) {
         setSpacing(spacing);
         return this;
     }

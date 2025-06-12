@@ -7,7 +7,7 @@ public interface FluidControl<T extends FluidControl<T>> extends FluidRegion<T> 
     Control getSelf();
 
     @SuppressWarnings("unchecked")
-    default T withTooltip(Tooltip tooltip) {
+    default T wTooltip(Tooltip tooltip) {
         getSelf().setTooltip(tooltip);
         return (T) this;
     }

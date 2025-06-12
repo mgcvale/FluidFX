@@ -9,19 +9,19 @@ public interface FluidLabeled<T extends FluidLabeled<T>> extends FluidControl<T>
 
     // text properties
     @SuppressWarnings("unchecked")
-    default T withText(String text) {
+    default T wText(String text) {
         getSelf().setText(text);
         return (T) this;
     }
 
     @SuppressWarnings("unchecked")
-    default T bindTextProperty(StringBinding stringBinding) {
+    default T inText(StringBinding stringBinding) {
         getSelf().textProperty().bind(stringBinding);
         return (T) this;
     }
 
     @SuppressWarnings("unchecked")
-    default T watchTextProperty(StringProperty observer) {
+    default T outText(StringProperty observer) {
         observer.bind(getSelf().textProperty());
         return (T) this;
     }
