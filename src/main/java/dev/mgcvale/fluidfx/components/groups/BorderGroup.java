@@ -17,27 +17,27 @@ public class BorderGroup extends BorderPane implements FluidGroup<BorderGroup> {
         super();
     }
 
-    public BorderGroup withCenter(Node center) {
+    public BorderGroup wCenter(Node center) {
         setCenter(center);
         return this;
     }
 
-    public BorderGroup withLeft(Node left) {
+    public BorderGroup wLeft(Node left) {
         setLeft(left);
         return this;
     }
 
-    public BorderGroup withRight(Node right) {
+    public BorderGroup wRight(Node right) {
         setRight(right);
         return this;
     }
 
-    public BorderGroup withTop(Node top) {
+    public BorderGroup wTop(Node top) {
         setTop(top);
         return this;
     }
 
-    public BorderGroup withBottom(Node bottom) {
+    public BorderGroup wBottom(Node bottom) {
         setBottom(bottom);
         return this;
     }

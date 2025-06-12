@@ -19,22 +19,22 @@ public class ScrollGroup extends ScrollPane implements FluidControl<ScrollGroup>
         super();
     }
 
-    public ScrollGroup hbarPolicy(ScrollBarPolicy policy) {
+    public ScrollGroup wHbarPolicy(ScrollBarPolicy policy) {
         setHbarPolicy(policy);
         return this;
     }
 
-    public ScrollGroup vbarPolicy(ScrollBarPolicy policy) {
+    public ScrollGroup wVbarPolicy(ScrollBarPolicy policy) {
         setVbarPolicy(policy);
         return this;
     }
 
-    public ScrollGroup withContent(Node content) {
+    public ScrollGroup wContent(Node content) {
         setContent(content);
         return this;
     }
 
-    public ScrollGroup withFixedWitdh() {
+    public ScrollGroup wFixedWitdh() {
         setFitToWidth(true);
         return this;
     }
