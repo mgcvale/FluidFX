@@ -160,13 +160,22 @@
 .pl-1 { -fx-padding: 0 0 0 4px; }
 .pl-0\.5 { -fx-padding: 0 0 0 2px; }
 
+
+.text-09 { -fx-font-size: .9em; }
+.text-08 { -fx-font-size: .8em; }
+.text-06 { -fx-font-size: .6em; }
+.text-05 { -fx-font-size: .5em; }
+.text-04 { -fx-font-size: .4em; }
+.text-02 { -fx-font-size: .2em; }
+.text-01 { -fx-font-size: .1em; }
 .text-base { -fx-font-size: 1em; }
-.text-1\.1 { -fx-font-size: 1.1em; }
-.text-1\.2 { -fx-font-size: 1.2em; }
-.text-1\.4 { -fx-font-size: 1.4em; }
-.text-1\.6 { -fx-font-size: 1.6em; }
-.text-1\.8 { -fx-font-size: 1.8em; }
-.text-2 { -fx-font-size: 2em; }
+.text-1 { -fx-font-size: 1.1em; }
+.text-2 { -fx-font-size: 1.2em; }
+.text-4 { -fx-font-size: 1.4em; }
+.text-5 { -fx-font-size: 1.5em; }
+.text-6 { -fx-font-size: 1.6em; }
+.text-8 { -fx-font-size: 1.8em; }
+.text-10 { -fx-font-size: 2em; }
 
 .text-base .text { -fx-font-size: 1em; }
 .text-1 .text { -fx-font-size: 1.1em; }

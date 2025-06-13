@@ -1,8 +1,11 @@
 package dev.mgcvale.fluidfx.components.groups;
 
 import dev.mgcvale.fluidfx.components.core.*;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
+
+import java.util.List;
 
 public class VGroup extends VBox implements FluidGroup<VGroup>, FluidBox {
     private BoxSpacing spacingType;
@@ -16,8 +19,18 @@ public class VGroup extends VBox implements FluidGroup<VGroup>, FluidBox {
         super();
     }
 
+    public VGroup wAlignment(Pos alignment) {
+        setAlignment(alignment);
+        return this;
+    }
+
     @Override
     public VGroup wChildren(Node... children) {
+        return wChildren(List.of(children));
+    }
+
+    @Override
+    public VGroup wChildren(List<Node> children) {
         getChildren().addAll(
                 BoxUtils.buildChildren(this, children)
         );

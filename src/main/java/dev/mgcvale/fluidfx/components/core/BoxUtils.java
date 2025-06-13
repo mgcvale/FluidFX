@@ -9,7 +9,7 @@ import java.util.List;
 
 public class BoxUtils {
 
-    public static List<Node> buildChildren(FluidBox box, Node ...children) {
+    public static List<Node> buildChildren(FluidBox box, List<Node> children) {
         final BoxType type = box.getBoxType();
         final BoxSpacing s = box.getSpacingType();
         List<Node> result = new LinkedList<>();
@@ -18,11 +18,11 @@ public class BoxUtils {
         if (s == BoxSpacing.SPACE_AROUND || s == BoxSpacing.LAYOUT_END || s == BoxSpacing.CENTER) result.add(Spacers.fromType(type));
 
         // add children, adding spacing with Priority.ALWAYS between them if using space around or space between
-        for (int i = 0; i < children.length; i++) {
-            result.add(children[i]);
+        for (int i = 0; i < children.size(); i++) {
+            result.add(children.get(i));
 
             // we never add spacers after the last child, and we only do between them for space between and space around.
-            if (i != children.length - 1 && (s == BoxSpacing.SPACE_AROUND || s == BoxSpacing.SPACE_BETWEEN)) result.add(Spacers.fromType(type));
+            if (i != children.size() - 1 && (s == BoxSpacing.SPACE_AROUND || s == BoxSpacing.SPACE_BETWEEN)) result.add(Spacers.fromType(type));
         }
 
         // initial spacer, for space around, start and center. The spacer has Priority.ALWAYS

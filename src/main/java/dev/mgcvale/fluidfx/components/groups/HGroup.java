@@ -1,9 +1,12 @@
 package dev.mgcvale.fluidfx.components.groups;
 
 import dev.mgcvale.fluidfx.components.core.*;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+
+import java.util.List;
 
 public class HGroup extends HBox implements FluidGroup<HGroup>, FluidBox {
     protected BoxSpacing spacingType = BoxSpacing.NONE;
@@ -17,13 +20,24 @@ public class HGroup extends HBox implements FluidGroup<HGroup>, FluidBox {
         super();
     }
 
+    public HGroup wAlignment(Pos alignment) {
+        setAlignment(alignment);
+        return this;
+    }
+
     @Override
     public HGroup wChildren(Node... children) {
+        return wChildren(List.of(children));
+    }
+
+    @Override
+    public HGroup wChildren(List<Node> children) {
         getChildren().addAll(
                 BoxUtils.buildChildren(this, children)
         );
         return this;
     }
+
 
     public HGroup wSpacing(double spacing) {
         setSpacing(spacing);

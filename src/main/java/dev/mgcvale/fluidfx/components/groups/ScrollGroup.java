@@ -39,5 +39,10 @@ public class ScrollGroup extends ScrollPane implements FluidControl<ScrollGroup>
         return this;
     }
 
+    public ScrollGroup wFixedHeight() {
+        setFitToHeight(true);
+        return this;
+    }
+
 
 }

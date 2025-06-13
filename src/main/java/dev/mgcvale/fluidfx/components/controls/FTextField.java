@@ -32,9 +32,16 @@ public class FTextField extends TextField implements FluidControl<FTextField> {
         textProperty().bind(stringBinding);
         return this;
     }
-
+    public FTextField inText(StringProperty stringBinding) {
+        textProperty().bind(stringBinding);
+        return this;
+    }
     public FTextField outText(StringProperty observer) {
         observer.bind(textProperty());
+        return this;
+    }
+    public FTextField biText(StringProperty property) {
+        property.bindBidirectional(textProperty());
         return this;
     }
 
