@@ -1,9 +1,12 @@
 package dev.mgcvale.fluidfx.components.controls;
 
 import dev.mgcvale.fluidfx.components.core.FluidControl;
+import javafx.beans.binding.BooleanExpression;
+import javafx.beans.binding.ObjectExpression;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -34,7 +37,7 @@ public class FListView<T> extends ListView<T> implements FluidControl<FListView<
         getSelectionModel().setSelectionMode(mode);
         return this;
     }
-    public FListView<T> inSelectionMode(ObjectProperty<SelectionMode> mode) {
+    public FListView<T> inSelectionMode(ObservableValue<SelectionMode> mode) {
         getSelectionModel().selectionModeProperty().bind(mode);
         return this;
     }
@@ -56,7 +59,7 @@ public class FListView<T> extends ListView<T> implements FluidControl<FListView<
         setEditable(editable);
         return this;
     }
-    public FListView<T> inEditable(BooleanProperty editable) {
+    public FListView<T> inEditable(BooleanExpression editable) {
         editableProperty().bind(editable);
         return this;
     }
@@ -82,7 +85,7 @@ public class FListView<T> extends ListView<T> implements FluidControl<FListView<
         setSelectionModel(model);
         return this;
     }
-    public FListView<T> inSelectionModel(ObjectProperty<? extends MultipleSelectionModel<T>> model) {
+    public FListView<T> inSelectionModel(ObservableValue<? extends MultipleSelectionModel<T>> model) {
         selectionModelProperty().bind(model);
         return this;
     }
@@ -99,7 +102,6 @@ public class FListView<T> extends ListView<T> implements FluidControl<FListView<
         selectedItem.bind(getSelectionModel().selectedItemProperty());
         return this;
     }
-
     public FListView<T> outSelectedIndex(IntegerProperty selectedIndex) {
         selectedIndex.bind(getSelectionModel().selectedIndexProperty());
         return this;
@@ -109,7 +111,7 @@ public class FListView<T> extends ListView<T> implements FluidControl<FListView<
         setPlaceholder(node);
         return this;
     }
-    public FListView<T> inPlaceholder(ObjectProperty<Node> node) {
+    public FListView<T> inPlaceholder(ObservableValue<Node> node) {
         placeholderProperty().bind(node);
         return this;
     }

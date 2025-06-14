@@ -1,6 +1,7 @@
 package dev.mgcvale.fluidfx.components.core;
 
 import javafx.beans.binding.StringBinding;
+import javafx.beans.binding.StringExpression;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
@@ -16,7 +17,7 @@ public interface FluidLabeled<T extends FluidLabeled<T>> extends FluidControl<T>
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inText(ObservableValue<String> stringBinding) {
+    default T inText(StringExpression stringBinding) {
         getSelf().textProperty().bind(stringBinding);
         return (T) this;
     }

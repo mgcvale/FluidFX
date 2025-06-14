@@ -1,7 +1,7 @@
 package dev.mgcvale.fluidfx.components.controls;
 
 import dev.mgcvale.fluidfx.components.core.FluidControl;
-import javafx.beans.binding.StringBinding;
+import javafx.beans.binding.StringExpression;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
@@ -28,11 +28,7 @@ public class FTextField extends TextField implements FluidControl<FTextField> {
         return this;
     }
 
-    public FTextField inText(StringBinding stringBinding) {
-        textProperty().bind(stringBinding);
-        return this;
-    }
-    public FTextField inText(StringProperty stringBinding) {
+    public FTextField inText(StringExpression stringBinding) {
         textProperty().bind(stringBinding);
         return this;
     }

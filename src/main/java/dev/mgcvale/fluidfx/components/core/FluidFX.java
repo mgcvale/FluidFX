@@ -1,12 +1,11 @@
 package dev.mgcvale.fluidfx.components.core;
 
 import dev.mgcvale.fluidfx.components.util.Ref;
-import javafx.beans.binding.BooleanBinding;
-import javafx.beans.binding.DoubleBinding;
-import javafx.beans.binding.ObjectBinding;
+import javafx.beans.binding.*;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.event.EventType;
@@ -133,7 +132,6 @@ public interface FluidFX<T extends FluidFX<T>> {
         return (T) this;
     }
 
-
     // watchers
     @SuppressWarnings("unchecked")
     default T outTranslateXProperty(DoubleProperty observer) {
@@ -171,40 +169,39 @@ public interface FluidFX<T extends FluidFX<T>> {
         return (T) this;
     }
 
-
     // bindings
     @SuppressWarnings("unchecked")
-    default T inTranslateX(DoubleBinding binding) {
+    default T inTranslateX(DoubleExpression binding) {
         getSelf().translateXProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inTranslateY(DoubleBinding binding) {
+    default T inTranslateY(DoubleExpression binding) {
         getSelf().translateYProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inLayoutX(DoubleBinding binding) {
+    default T inLayoutX(DoubleExpression binding) {
         getSelf().layoutXProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inLayoutY(DoubleBinding binding) {
+    default T inLayoutY(DoubleExpression binding) {
         getSelf().layoutYProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inRotate(DoubleBinding binding) {
+    default T inRotate(DoubleExpression binding) {
         getSelf().rotateProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inScaleX(DoubleBinding binding) {
+    default T inScaleX(DoubleExpression binding) {
         getSelf().scaleXProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inScaleY(DoubleBinding binding) {
+    default T inScaleY(DoubleExpression binding) {
         getSelf().scaleYProperty().bind(binding);
         return (T) this;
     }
@@ -248,17 +245,17 @@ public interface FluidFX<T extends FluidFX<T>> {
 
     // bindings
     @SuppressWarnings("unchecked")
-    default T inVisible(BooleanBinding binding) {
+    default T inVisible(BooleanExpression binding) {
         getSelf().visibleProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inManaged(BooleanBinding binding) {
+    default T inManaged(BooleanExpression binding) {
         getSelf().managedProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inDisable(BooleanBinding binding) {
+    default T inDisable(BooleanExpression binding) {
         getSelf().disableProperty().bind(binding);
         return (T) this;
     }
@@ -301,17 +298,17 @@ public interface FluidFX<T extends FluidFX<T>> {
 
     // bindings
     @SuppressWarnings("unchecked")
-    default T inOpacity(DoubleBinding binding) {
+    default T inOpacity(DoubleExpression binding) {
         getSelf().opacityProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inEffect(ObjectBinding<Effect> binding) {
+    default T inEffect(ObservableValue<Effect> binding) {
         getSelf().effectProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inCursor(ObjectBinding<Cursor> binding) {
+    default T inCursor(ObservableValue<Cursor> binding) {
         getSelf().cursorProperty().bind(binding);
         return (T) this;
     }
@@ -333,7 +330,7 @@ public interface FluidFX<T extends FluidFX<T>> {
     }
 
     @SuppressWarnings("unchecked")
-    default T inFocusTraversable(BooleanBinding binding) {
+    default T inFocusTraversable(BooleanExpression binding) {
         getSelf().focusTraversableProperty().bind(binding);
         return (T) this;
     }
@@ -374,7 +371,7 @@ public interface FluidFX<T extends FluidFX<T>> {
     }
 
     @SuppressWarnings("unchecked")
-    default T inStackAlignment(ObjectProperty<Pos> align) {
+    default T inStackAlignment(ObservableValue<Pos> align) {
         align.addListener((obs, o, n) -> {
             StackPane.setAlignment(getSelf(), n);
         });

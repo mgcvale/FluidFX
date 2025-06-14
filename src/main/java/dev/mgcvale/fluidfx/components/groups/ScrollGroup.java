@@ -3,6 +3,7 @@ package dev.mgcvale.fluidfx.components.groups;
 
 import dev.mgcvale.fluidfx.components.core.FluidControl;
 import dev.mgcvale.fluidfx.components.core.FluidGroup;
+import javafx.beans.binding.BooleanExpression;
 import javafx.beans.property.BooleanProperty;
 import javafx.scene.Node;
 import javafx.scene.control.Control;
@@ -49,7 +50,7 @@ public class ScrollGroup extends ScrollPane implements FluidControl<ScrollGroup>
         setPannable(pane);
         return this;
     }
-    public ScrollGroup inPannable(BooleanProperty p) {
+    public ScrollGroup inPannable(BooleanExpression p) {
         pannableProperty().bind(p);
         return this;
     }

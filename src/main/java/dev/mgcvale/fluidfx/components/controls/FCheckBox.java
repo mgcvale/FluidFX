@@ -1,6 +1,7 @@
 package dev.mgcvale.fluidfx.components.controls;
 
 import dev.mgcvale.fluidfx.components.core.FluidLabeled;
+import javafx.beans.binding.BooleanExpression;
 import javafx.beans.property.BooleanProperty;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Labeled;
@@ -30,7 +31,7 @@ public class FCheckBox extends CheckBox implements FluidLabeled<FCheckBox> {
         setSelected(s);
         return this;
     }
-    public FCheckBox inSelected(BooleanProperty s) {
+    public FCheckBox inSelected(BooleanExpression s) {
         selectedProperty().bind(s);
         return this;
     }
@@ -48,7 +49,7 @@ public class FCheckBox extends CheckBox implements FluidLabeled<FCheckBox> {
         setIndeterminate(s);
         return this;
     }
-    public FCheckBox inIndeterminate(BooleanProperty s) {
+    public FCheckBox inIndeterminate(BooleanExpression s) {
         indeterminateProperty().bind(s);
         return this;
     }

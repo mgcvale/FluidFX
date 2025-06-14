@@ -8,6 +8,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyDoubleProperty;
 
 
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.scene.layout.Region;public interface FluidRegion<T extends FluidRegion<T>> extends FluidFX<T> {
     Region getSelf();
@@ -125,7 +126,7 @@ import javafx.scene.layout.Region;public interface FluidRegion<T extends FluidRe
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inPadding(ObjectProperty<Insets> paddingBinding) {
+    default T inPadding(ObservableValue<Insets> paddingBinding) {
         getSelf().paddingProperty().bind(paddingBinding);
         return (T) this;
     }

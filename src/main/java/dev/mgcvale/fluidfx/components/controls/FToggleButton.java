@@ -2,6 +2,7 @@ package dev.mgcvale.fluidfx.components.controls;
 
 import dev.mgcvale.fluidfx.components.core.FluidControl;
 import javafx.beans.binding.BooleanBinding;
+import javafx.beans.binding.BooleanExpression;
 import javafx.beans.property.BooleanProperty;
 import javafx.scene.control.Control;
 import javafx.scene.control.ToggleButton;
@@ -26,7 +27,7 @@ public class FToggleButton extends ToggleButton implements FluidControl<FToggleB
         return this;
     }
 
-    public FToggleButton inPressed(BooleanBinding binding) {
+    public FToggleButton inPressed(BooleanExpression binding) {
         binding.addListener((obs, o, n) -> setPressed(n));
         return this;
     }

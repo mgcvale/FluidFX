@@ -1,7 +1,10 @@
 package dev.mgcvale.fluidfx.components.controls;
 
 import dev.mgcvale.fluidfx.components.core.FluidControl;
+import javafx.beans.binding.BooleanExpression;
+import javafx.beans.binding.IntegerExpression;
 import javafx.beans.binding.StringBinding;
+import javafx.beans.binding.StringExpression;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
@@ -30,11 +33,7 @@ public class FTextArea extends TextArea implements FluidControl<FTextArea> {
         setText(text);
         return this;
     }
-    public FTextArea inText(StringBinding stringBinding) {
-        textProperty().bind(stringBinding);
-        return this;
-    }
-    public FTextArea inText(StringProperty stringBinding) {
+    public FTextArea inText(StringExpression stringBinding) {
         textProperty().bind(stringBinding);
         return this;
     }
@@ -51,7 +50,7 @@ public class FTextArea extends TextArea implements FluidControl<FTextArea> {
         setPrefRowCount(count);
         return this;
     }
-    public FTextArea inPrefRowCount(IntegerProperty count) {
+    public FTextArea inPrefRowCount(IntegerExpression count) {
         prefRowCountProperty().bind(count);
         return this;
     }
@@ -68,7 +67,7 @@ public class FTextArea extends TextArea implements FluidControl<FTextArea> {
         setWrapText(wrap);
         return this;
     }
-    public FTextArea inWrap(BooleanProperty wrap) {
+    public FTextArea inWrap(BooleanExpression wrap) {
         wrapTextProperty().bind(wrap);
         return this;
     }

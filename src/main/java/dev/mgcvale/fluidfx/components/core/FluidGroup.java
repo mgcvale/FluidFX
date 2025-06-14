@@ -1,6 +1,7 @@
 package dev.mgcvale.fluidfx.components.core;
 
 
+import javafx.beans.property.ListProperty;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -24,19 +25,14 @@ public interface FluidGroup<T extends FluidGroup<T>> extends FluidRegion<T> {
     }
 
     @SuppressWarnings("unchecked")
-    default T outChildren(ObservableList<Node> children) {
+    default T outChildren(ListProperty<Node> children) {
         getSelf().getChildren().addListener((ListChangeListener<? super Node>) change -> children.setAll(change.getList()));
         return (T) this;
     }
 
     @SuppressWarnings("unchecked")
     default T inChildren(ObservableList<Node> children) {
-        children.addListener(new ListChangeListener<Node>() {
-            @Override
-            public void onChanged(Change<? extends Node> change) {
-                getSelf().getChildren().setAll(children);
-            }
-        });
+        children.addListener((ListChangeListener<Node>) change -> getSelf().getChildren().setAll(children));
         return (T) this;
     }
 }
