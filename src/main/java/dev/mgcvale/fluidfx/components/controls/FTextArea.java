@@ -64,41 +64,6 @@ public class FTextArea extends TextArea implements FluidControl<FTextArea> {
         return this;
     }
 
-    public FTextArea wMaxRowCount(int count) {
-        setPrefRowCount(count);
-        return this;
-    }
-    public FTextArea inMaxRowCount(IntegerProperty count) {
-        prefRowCountProperty().bind(count);
-        return this;
-    }
-    public FTextArea outMaxRowCount(IntegerProperty count) {
-        count.bind(prefRowCountProperty());
-        return this;
-    }
-    public FTextArea biMaxRowCount(IntegerProperty count) {
-        count.bindBidirectional(prefRowCountProperty());
-        return this;
-    }
-
-    public FTextArea wMinRowCount(int count) {
-        setPrefRowCount(count);
-        return this;
-    }
-    public FTextArea inMinRowCount(IntegerProperty count) {
-        prefRowCountProperty().bind(count);
-        return this;
-    }
-    public FTextArea outMinRowCount(IntegerProperty count) {
-        count.bind(prefRowCountProperty());
-        return this;
-    }
-    public FTextArea biMinRowCount(IntegerProperty count) {
-        count.bindBidirectional(prefRowCountProperty());
-        return this;
-    }
-
-
     public FTextArea wWrap(boolean wrap) {
         setWrapText(wrap);
         return this;

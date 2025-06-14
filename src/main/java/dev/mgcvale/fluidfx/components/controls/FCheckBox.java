@@ -1,5 +1,6 @@
-package dev.mgcvale.fluidfx.components.core;
+package dev.mgcvale.fluidfx.components.controls;
 
+import dev.mgcvale.fluidfx.components.core.FluidLabeled;
 import javafx.beans.property.BooleanProperty;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Labeled;
