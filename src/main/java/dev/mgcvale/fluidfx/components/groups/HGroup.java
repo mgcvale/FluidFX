@@ -64,6 +64,10 @@ public class HGroup extends HBox implements FluidGroup<HGroup>, FluidBox {
         this.spacingType = BoxSpacing.LAYOUT_END;
         return this;
     }
+    public HGroup wBoxSpacing(BoxSpacing spacing) {
+        this.spacingType = spacing;
+        return this;
+    }
 
     @Override
     public BoxSpacing getSpacingType() {

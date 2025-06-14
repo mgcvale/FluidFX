@@ -57,6 +57,10 @@ public class VGroup extends VBox implements FluidGroup<VGroup>, FluidBox {
         this.spacingType = BoxSpacing.LAYOUT_END;
         return this;
     }
+    public VGroup wBoxSpacing(BoxSpacing spacing) {
+        this.spacingType = spacing;
+        return this;
+    }
 
 
     public VGroup wSpacing(double spacing) {

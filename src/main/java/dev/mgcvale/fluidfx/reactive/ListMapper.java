@@ -17,6 +17,7 @@ public class ListMapper {
             target.add(mapper.apply(item));
 
         source.addListener((ListChangeListener<S>) change -> {
+            System.out.println("Source changed");
             while (change.next()) {
                 if (change.wasPermutated()) {
                     List<T> copy = new ArrayList<>(target.subList(change.getFrom(), change.getTo()));
@@ -35,6 +36,10 @@ public class ListMapper {
                     }
                 }
             }
+        });
+
+        target.addListener((ListChangeListener<? super T>) change -> {
+            System.out.println(target);
         });
 
         return target;
