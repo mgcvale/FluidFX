@@ -3,6 +3,7 @@ package dev.mgcvale.fluidfx.components.groups;
 
 import dev.mgcvale.fluidfx.components.core.FluidControl;
 import dev.mgcvale.fluidfx.components.core.FluidGroup;
+import javafx.beans.property.BooleanProperty;
 import javafx.scene.Node;
 import javafx.scene.control.Control;
 import javafx.scene.control.ScrollPane;
@@ -41,6 +42,23 @@ public class ScrollGroup extends ScrollPane implements FluidControl<ScrollGroup>
 
     public ScrollGroup wFixedHeight() {
         setFitToHeight(true);
+        return this;
+    }
+
+    public ScrollGroup wPannable(boolean pane) {
+        setPannable(pane);
+        return this;
+    }
+    public ScrollGroup inPannable(BooleanProperty p) {
+        pannableProperty().bind(p);
+        return this;
+    }
+    public ScrollGroup outPannable(BooleanProperty p) {
+        p.bind(pannableProperty());
+        return this;
+    }
+    public ScrollGroup biPannable(BooleanProperty p) {
+        p.bindBidirectional(pannableProperty());
         return this;
     }
 
