@@ -24,6 +24,12 @@ public interface FluidGroup<T extends FluidGroup<T>> extends FluidRegion<T> {
     }
 
     @SuppressWarnings("unchecked")
+    default T outChildren(ObservableList<Node> children) {
+        getSelf().getChildren().addListener((ListChangeListener<? super Node>) change -> children.setAll(change.getList()));
+        return (T) this;
+    }
+
+    @SuppressWarnings("unchecked")
     default T inChildren(ObservableList<Node> children) {
         children.addListener(new ListChangeListener<Node>() {
             @Override

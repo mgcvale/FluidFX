@@ -366,5 +366,21 @@ public interface FluidFX<T extends FluidFX<T>> {
         return (T) this;
     }
 
+    // stack pane alignment
+    @SuppressWarnings("unchecked")
+    default T wStackAlignment(Pos align) {
+        StackPane.setAlignment(getSelf(), align);
+        return (T) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    default T inStackAlignment(ObjectProperty<Pos> align) {
+        align.addListener((obs, o, n) -> {
+            StackPane.setAlignment(getSelf(), n);
+        });
+        return (T) this;
+    }
+
+
 
 }
