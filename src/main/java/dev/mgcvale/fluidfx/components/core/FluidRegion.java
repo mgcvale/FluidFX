@@ -2,6 +2,7 @@ package dev.mgcvale.fluidfx.components.core;
 
 import dev.mgcvale.fluidfx.components.util.Ref;
 import javafx.beans.binding.DoubleBinding;
+import javafx.beans.binding.DoubleExpression;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyDoubleProperty;
@@ -55,32 +56,32 @@ import javafx.scene.layout.Region;public interface FluidRegion<T extends FluidRe
 
     // bindings
     @SuppressWarnings("unchecked")
-    default T inMinWidth(DoubleBinding binding) {
+    default T inMinWidth(DoubleExpression binding) {
         getSelf().minWidthProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inMinHeight(DoubleBinding binding) {
+    default T inMinHeight(DoubleExpression binding) {
         getSelf().minHeightProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inPrefWidth(DoubleBinding binding) {
+    default T inPrefWidth(DoubleExpression binding) {
         getSelf().prefWidthProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inPrefHeight(DoubleBinding binding) {
+    default T inPrefHeight(DoubleExpression binding) {
         getSelf().prefHeightProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inMaxWidth(DoubleBinding binding) {
+    default T inMaxWidth(DoubleExpression binding) {
         getSelf().maxWidthProperty().bind(binding);
         return (T) this;
     }
     @SuppressWarnings("unchecked")
-    default T inMaxHeight(DoubleBinding binding) {
+    default T inMaxHeight(DoubleExpression binding) {
         getSelf().maxHeightProperty().bind(binding);
         return (T) this;
     }
