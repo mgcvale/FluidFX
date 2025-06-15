@@ -1,13 +1,11 @@
 package dev.mgcvale.fluidfx.components.controls;
 
-import dev.mgcvale.fluidfx.components.core.FluidControl;
 import dev.mgcvale.fluidfx.components.core.FluidFX;
 import javafx.beans.binding.DoubleExpression;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
 
 public class FImageView extends ImageView implements FluidFX<FImageView> {
     @Override
@@ -78,5 +76,10 @@ public class FImageView extends ImageView implements FluidFX<FImageView> {
                 setImage(fallback);
             }
         });
+
+        // we also check if it already has an error
+        if (img.isError() && getImage() != fallback) {
+            setImage(fallback);
+        }
     }
 }
