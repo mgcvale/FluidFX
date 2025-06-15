@@ -29,6 +29,7 @@ public class Spacers {
 
     public static Region vSpacer(DoubleBinding sizeProperty) {
         Region spacer = new Region();
+        spacer.minHeightProperty().bind(sizeProperty);
         spacer.maxHeightProperty().bind(sizeProperty);
         VBox.setVgrow(spacer, Priority.ALWAYS);
         return spacer;
