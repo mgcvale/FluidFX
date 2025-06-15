@@ -3,9 +3,11 @@ package dev.mgcvale.fluidfx.components.controls;
 import dev.mgcvale.fluidfx.components.core.FluidFX;
 import javafx.beans.binding.DoubleExpression;
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 
 public class FImageView extends ImageView implements FluidFX<FImageView> {
     @Override
@@ -60,6 +62,11 @@ public class FImageView extends ImageView implements FluidFX<FImageView> {
         setImage(img);
         return this;
     }
+    public FImageView inImage(ObservableValue<Image> img) {
+        imageProperty().bind(img);
+        return this;
+    }
+
     public FImageView wFallback(Image img) {
         imageProperty().addListener((obsi, oldImg, newImg) -> {
             initializeFallback(newImg, img);
@@ -81,5 +88,14 @@ public class FImageView extends ImageView implements FluidFX<FImageView> {
         if (img.isError() && getImage() != fallback) {
             setImage(fallback);
         }
+    }
+
+    private FImageView clipCircle() {
+        Circle clip = new Circle();
+        clip.radiusProperty().bind(fitHeightProperty().multiply(0.5));
+        clip.centerXProperty().bind(fitHeightProperty().multiply(0.5));
+        clip.centerYProperty().bind(fitHeightProperty().multiply(0.5));
+        setClip(clip);
+        return this;
     }
 }
