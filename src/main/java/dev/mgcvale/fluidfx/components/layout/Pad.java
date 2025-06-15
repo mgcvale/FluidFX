@@ -1,5 +1,9 @@
 package dev.mgcvale.fluidfx.components.layout;
 
+import javafx.beans.binding.DoubleExpression;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.Insets;
 
 public class Pad extends Insets {
@@ -57,8 +61,6 @@ public class Pad extends Insets {
     }
 
     // fluent methods
-
-
     public Pad addX(double dx) {
         return new Pad(getTop(), getRight() + dx, getBottom(), getLeft() + dx);
     }
@@ -80,5 +82,57 @@ public class Pad extends Insets {
     }
 
 
+    // reactive builders
 
+
+    public static ObjectProperty<Insets> bottom(DoubleExpression v) {
+        ObjectProperty<Insets> padProp = new SimpleObjectProperty<>(new Insets(0, 0, v.doubleValue(), 0));
+        v.addListener((obs, o, n) -> {
+            padProp.set(new Insets(0, 0, n.doubleValue(), 0));
+        });
+        return padProp;
+    }
+    public static ObjectProperty<Insets> top(DoubleExpression v) {
+        ObjectProperty<Insets> padProp = new SimpleObjectProperty<>(new Insets(v.doubleValue(), 0, 0, 0));
+        v.addListener((obs, o, n) -> {
+            padProp.set(new Insets(n.doubleValue(), 0, 0, 0));
+        });
+        return padProp;
+    }
+    public static ObjectProperty<Insets> left(DoubleExpression v) {
+        ObjectProperty<Insets> padProp = new SimpleObjectProperty<>(new Insets(0, 0, 0, v.doubleValue()));
+        v.addListener((obs, o, n) -> {
+            padProp.set(new Insets(0, 0, 0, n.doubleValue()));
+        });
+        return padProp;
+    }
+    public static ObjectProperty<Insets> right(DoubleExpression v) {
+        ObjectProperty<Insets> padProp = new SimpleObjectProperty<>(new Insets(0, v.doubleValue(), 0, 0));
+        v.addListener((obs, o, n) -> {
+            padProp.set(new Insets(0, n.doubleValue(), 0, 0));
+        });
+        return padProp;
+    }
+    public static ObjectProperty<Insets> x(DoubleExpression v) {
+        ObjectProperty<Insets> padProp = new SimpleObjectProperty<>(new Insets(0, v.doubleValue(), 0, v.doubleValue()));
+        v.addListener((obs, o, n) -> {
+            padProp.set(new Insets(0, n.doubleValue(), 0, n.doubleValue()));
+        });
+        return padProp;
+    }
+
+    public static ObjectProperty<Insets> y(DoubleExpression v) {
+        ObjectProperty<Insets> padProp = new SimpleObjectProperty<>(new Insets(v.doubleValue(), 0, v.doubleValue(), 0));
+        v.addListener((obs, o, n) -> {
+            padProp.set(new Insets(n.doubleValue(), 0, n.doubleValue(), 0));
+        });
+        return padProp;
+    }
+    public static ObjectProperty<Insets> all(DoubleExpression v) {
+        ObjectProperty<Insets> padProp = new SimpleObjectProperty<>(new Insets(v.doubleValue()));
+        v.addListener((obs, o, n) -> {
+            padProp.set(new Insets(n.doubleValue()));
+        });
+        return padProp;
+    }
 }
