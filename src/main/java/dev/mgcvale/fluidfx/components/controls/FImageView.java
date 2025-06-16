@@ -90,7 +90,7 @@ public class FImageView extends ImageView implements FluidFX<FImageView> {
         }
     }
 
-    private FImageView clipCircle() {
+    public FImageView clipCircle() {
         Circle clip = new Circle();
         clip.radiusProperty().bind(fitHeightProperty().multiply(0.5));
         clip.centerXProperty().bind(fitHeightProperty().multiply(0.5));

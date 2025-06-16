@@ -6,6 +6,7 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Labeled;
+import javafx.scene.text.TextAlignment;
 
 public interface FluidLabeled<T extends FluidLabeled<T>> extends FluidControl<T> {
     Labeled getSelf();
@@ -29,6 +30,12 @@ public interface FluidLabeled<T extends FluidLabeled<T>> extends FluidControl<T>
     @SuppressWarnings("unchecked")
     default T biText(StringProperty text) {
         getSelf().textProperty().bindBidirectional(text);
+        return (T) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    default T wTextAlignment(TextAlignment align) {
+        getSelf().setTextAlignment(align);
         return (T) this;
     }
 
