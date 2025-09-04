@@ -108,9 +108,14 @@ new HGroup().spaceAround().wChildren(
 4- .justifyStart() - one spacer in the end of the children, to push everything to the start.
 5- .justifyEnd() - one spacer in the start of the children, to push everything to the end.
 
+In the topic of HBoxes and VBoxes, we should also talk about VGrow and HGrow. These are essential properties, which define
+if a component should grow to occupy space inside a Box.
+While FluidFX's approach to these properties does follow the patterns defined in `1.2. Properties`, I added an extra util: .vgrow() and .hgrow().
+Because VGrow and HGrow are used almost all the time - and most commonly with Priority.ALWAYS, in FluidFX you can juts throw .vgrow() or .hgrow() into the
+property chain of a Component, and that will add a grow with Priority.ALWAYS to it.
 
 And finally, we also have the Wrapper class. It's pretty simple - it just applies a property onto a component, and returns itself.
-It is useful to "fluidify" non-FluidFX components, for exmaple:
+It is useful to "fluidify" non-FluidFX components, for example:
 ```java
 new HGroup().wChildren(
     wrapStyleClass(new Label("Test"), "text-red", "text-6")
@@ -126,7 +131,7 @@ Here is a small list of everything we currently have:
 - text-\*: font size. From 01 (0.1em) all the way to 10 (10em).
 - p-\*: padding. py, px, pb, pl, pt and pr are also available. Each number is equivalent to 1 pixel (e.g. p-1 is 4px of padding).
 - border-radius-*: border radius. from sm (4px) to full (999px).
-- backgorund-radius-*: same as border radius, but for background radius.
+- background-radius-*: same as border radius, but for background radius.
 - pref-w and pref-h: preferred width and height. from 1 (4px) to 256 (1024px).
 - hand, crosshair, text, ...: for changing the cursor.
 - spacing-\*: spacing for VBoxes and HBoxes. from 1 (4px) to 8 (32px).
@@ -135,7 +140,7 @@ Also, p-* classes can have the -i suffix, for applying the !important CSS tag.
 
 #### Applying what we've learned
 
-And... that's pretty much it for the basics! Lets apply what we've learned by improving that previous login screen.
+And... that's pretty much it for the basics! Let's apply what we've learned by improving that previous login screen.
 
 ```java
 new VGroup().wStyleClass("p-6", "spacing-3").wChildren(
