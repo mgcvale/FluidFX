@@ -1,11 +1,8 @@
 package dev.mgcvale.fluidfx.components.core;
 
-import dev.mgcvale.fluidfx.components.util.Ref;
-import javafx.beans.binding.DoubleBinding;
 import javafx.beans.binding.DoubleExpression;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.ReadOnlyDoubleProperty;
 
 
 import javafx.beans.value.ObservableValue;

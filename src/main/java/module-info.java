@@ -14,5 +14,9 @@ module fluidfx {
     exports dev.mgcvale.fluidfx.example.todolist.view;
     exports dev.mgcvale.fluidfx.example.todolist.viewmodel;
     exports dev.mgcvale.fluidfx.components.layout;
+    exports dev.mgcvale.fluidfx.example.finance.viewmodel;
+    exports dev.mgcvale.fluidfx.example.finance.model;
+    exports dev.mgcvale.fluidfx.example.finance.view;
+    exports dev.mgcvale.fluidfx.example.finance;
 
 }

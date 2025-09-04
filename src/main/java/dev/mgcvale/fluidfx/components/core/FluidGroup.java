@@ -1,6 +1,5 @@
 package dev.mgcvale.fluidfx.components.core;
 
-
 import javafx.beans.property.ListProperty;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -32,7 +31,13 @@ public interface FluidGroup<T extends FluidGroup<T>> extends FluidRegion<T> {
 
     @SuppressWarnings("unchecked")
     default T inChildren(ObservableList<Node> children) {
-        children.addListener((ListChangeListener<Node>) change -> getSelf().getChildren().setAll(children));
+        // Set initial children
+        getSelf().getChildren().setAll(children);
+
+        // Listen for changes and update
+        children.addListener((ListChangeListener<Node>) change -> {
+            getSelf().getChildren().setAll(children);
+        });
         return (T) this;
     }
 }
