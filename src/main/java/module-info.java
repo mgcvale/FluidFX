@@ -18,5 +18,6 @@ module fluidfx {
     exports dev.mgcvale.fluidfx.example.finance.model;
     exports dev.mgcvale.fluidfx.example.finance.view;
     exports dev.mgcvale.fluidfx.example.finance;
+    exports dev.mgcvale.fluidfx;
 
 }
