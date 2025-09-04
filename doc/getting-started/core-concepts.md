@@ -101,14 +101,15 @@ new HGroup().spaceAround().wChildren(
 )
 ```
 
-.spaceAround() creates HSpacers between every element, but we also have other options. Here is a quick summary of what we can use:
+`.spaceAround()` creates HSpacers between every element, but we also have other options. Here is a quick summary of what we can use:
 
-1- .spaceAround() - spacers between every element
-2- .spaceBetween() - spacers between every element, except for the start/end
-3- .justifyCenter() - spacers in the start and end of the children, centering everything.
-4- .justifyStart() - one spacer in the end of the children, to push everything to the start.
-5- .justifyEnd() - one spacer in the start of the children, to push everything to the end.
+- `.spaceAround()` - spacers between every element
+- `.spaceBetween()` - spacers between every element, except for the start/end
+- `.justifyCenter()` - spacers in the start and end of the children, centering everything.
+- `.justifyStart()` - one spacer in the end of the children, to push everything to the start.
+- `.justifyEnd()` - one spacer in the start of the children, to push everything to the end.
 
+<br>
 
 And finally, we also have the Wrapper class. It's pretty simple - it just applies a property onto a component, and returns itself.
 It is useful to "fluidify" non-FluidFX components, for exmaple:
@@ -133,6 +134,8 @@ Here is a small list of everything we currently have:
 - spacing-\*: spacing for VBoxes and HBoxes. from 1 (4px) to 8 (32px).
 
 Also, p-* classes can have the -i suffix, for applying the !important CSS tag.
+
+---
 
 #### Applying what we've learned
 
