@@ -35,6 +35,7 @@ new VGroup()
 );
 ```
 
+---
 Besides making the process of creating UIs much more fun and fluid, this makes code more maintainable and readable. Instead of traversing through dozens of lines of code just to find a single component, you can find what you need by a quick glance at the FluidFX component tree, as it mimics the actual layout of your app, like HTML or FXML would.
 
 Also, FluidFX comes equipped with handy reactive tools built around JavaFX's Observable API, making things like this possible:
@@ -50,6 +51,7 @@ new VGroup().wSpacing(8).wChildren(
     )
 );
 ```
-<small>here, the inChildren binds the items list _into_ the children property of the VGroup.</small>
+<sub>here, the inChildren binds the items list _into_ the children property of the VGroup.</sub>
 
+---
 If you like this concept/idea, you can learn about how FluidFX works in [Getting Started](getting-started/)!
