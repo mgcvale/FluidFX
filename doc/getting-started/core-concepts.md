@@ -63,15 +63,16 @@ new VGroup().wSpacing(16).wPadding(Pad.all(24)).wChildren(
 
 This creates a simple login page. We will evolve it later with more features.
 
-# 1.3. Spacers and Wrappers
+#### 1.3. Spacers and Wrappers
 
 Sometimes, we need some "filler" components in JavaFX, specially when using HBoxes and VBoxes.
 For example, let's suppose you want a Header HBox where some elements are all the way to the left, and others are all 
 the way to the right, kind of like this:
+```
 ========================================================
 | Element1 Element                 Element 3 Element 4 |
 ========================================================
-
+```
 To do this, we can create three HBoxes: one for the Header, one for elements 1 and 2, and a final one for element 3 and 4.
 However, we need something with Priority.ALWAYS HGrow to make them spaced apart. FluidFX provides a handy util to do this:
 Spacers.
