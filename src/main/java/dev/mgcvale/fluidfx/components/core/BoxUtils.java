@@ -1,7 +1,6 @@
 package dev.mgcvale.fluidfx.components.core;
 
 import dev.mgcvale.fluidfx.components.layout.Spacers;
-import javafx.collections.ObservableList;
 import javafx.scene.Node;
 
 import java.util.LinkedList;

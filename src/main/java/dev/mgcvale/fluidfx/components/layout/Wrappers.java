@@ -37,7 +37,7 @@ public class Wrappers {
         return l;
     }
 
-    public static <T extends Node> T wStyleClasses(T n, String ...classes) {
+    public static <T extends Node> T wStyleClass(T n, String ...classes) {
         n.getStyleClass().addAll(classes);
         return n;
     }
