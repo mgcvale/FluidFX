@@ -26,7 +26,7 @@ public class TodoList extends VBox implements FluidGroup<TodoList> {
                         ),
                         new FLabel().inText(vm.errorProperty()).inVisible(vm.errorProperty().isEmpty())
                 ),
-                new FListView<TodoItem>().wCellFactory(lv -> new ListCell<TodoItem>() {
+                new FListView<TodoItem>().wCellFactory(lv -> new ListCell<>() {
                     @Override
                     protected void updateItem(TodoItem todoItem, boolean empty) {
                         super.updateItem(todoItem, empty);
@@ -35,13 +35,13 @@ public class TodoList extends VBox implements FluidGroup<TodoList> {
                             setGraphic(null);
                         } else {
                             setGraphic(new HGroup().wSpacing(8).wChildren(
-                                    new FCheckBox().biIndeterminate(todoItem.doneProperty()),
+                                    new FCheckBox().biSelected(todoItem.doneProperty()),
                                     new FLabel().biText(todoItem.titleProperty()).hgrow()
                             ));
                         }
                     }
                 }).wItems(vm.getItems()).outSelectedItem(vm.selectedItemProperty()),
-                new HGroup().wSpacing(8).wPadding(Pad.x(8)).wChildren(
+                new HGroup().wSpacing(8).wPadding(Pad.all(8)).wChildren(
                         new FButton("Limpar feitas").onAction(e -> vm.clearDone()),
                         new FButton("Deletar").onAction(e -> vm.removeItem(vm.selectedItemProperty().get())).inDisable(vm.selectedItemProperty().isNull())
                 )
