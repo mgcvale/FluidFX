@@ -190,3 +190,4 @@
 .disappear   { -fx-cursor: disappear; }
 .none        { -fx-cursor: none; }
 
+.debug { -fx-border-color: red; -fx-border-width: 1px}

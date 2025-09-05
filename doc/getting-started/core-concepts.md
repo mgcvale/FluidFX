@@ -285,4 +285,47 @@ new VGroup().wChildren(
 )
 ```
 
-#### 2.3. 
+#### 2.3. Layout Bindings
+
+Sometimes, we may want to use JavaFX's bindings with component's layout properties, particularly pref/max/minWidth and 
+pref/max/minHeight. FluidFX supports these properties just as any other - so you can use them in your layouts:
+
+```java
+DoubleProperty vgroupWidth = new SimpleDoubleProperty();
+new VGroup().outWidthProperty(vgroupWidth).wAlignment(Pos.TOP_CENTER).wChildren(
+    new FTextField().inMaxWidth(vgroupWidth.multiply(0.8)).hgrow()
+)
+```
+
+Furthermore, you may also want to grab the entire instance of a FluidFX Node, either to use it in even more complex layouts,
+or just because you don't want to create a bunch of properties for widths, heights and sizes of nodes.
+
+```java
+Ref<VGroup> vGroupRef = new Ref<>(null); // Ref stands for reference
+new VGroup().wPrefWidth(256).grabInstance(vGroupRef).wAlignment(Pos.TOP_CENTER).wChildren(
+    new FTextField().inMaxWidth(vGroupRef.ref.widthProperty().multiply(0.8)).hgrow()
+)
+```
+<sub>Just make sure you grab the instance before using it!</sub>
+
+#### 2.4. Missing Features
+
+Even though FluidFX has a comprehensive featureset, some things may be missing, incomplete, or just not specific enough 
+for your needs. Because of that, every FluidFX component has one last versatile method; `applyCustomFunction`.
+As the name suggests, it applies a custom function to the component you are creating, without losing FluidFX's Chainable API.
+
+```java
+new VGroup().wChildren(
+    new FLabel().applyCustomFunction(instance -> {
+        instance.setText("Do whatever you want here!");
+    }).wText("And you cand do stuff here too!")
+);
+```
+
+## That's it!
+
+And... that's pretty much it for the basics of FluidFX. With these fundamentals (properties and reactivity), you can
+already start building basically any app, and learn about other features as needed.
+
+If you are planning to build a more complex app with FluidFX, I highly recommend you use the MVVM architecture, as
+FluidFX's reactive, binding-centric nature was designed to play along well with it.
