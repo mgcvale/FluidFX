@@ -108,6 +108,8 @@ new HGroup().spaceAround().wChildren(
 - `.justifyStart()` - one spacer in the end of the children, to push everything to the start.
 - `.justifyEnd()` - one spacer in the start of the children, to push everything to the end.
 
+<br>
+
 In the topic of HBoxes and VBoxes, we should also talk about VGrow and HGrow. These are essential properties, which define
 if a component should grow to occupy space inside a Box.
 While FluidFX's approach to these properties does follow the patterns defined in `1.2. Properties`, I added an extra util: .vgrow() and .hgrow().
@@ -168,3 +170,119 @@ new VGroup().wStyleClass("p-6", "spacing-3").wChildren(
     ).wPadding(Pad.top(16))
 );
 ```
+
+## Chapter 2: Bindings and reactivity
+
+Here, you will learn about reactivity with FluidFX using the three binding utilities: `in`, `out` and `bi`.
+
+#### 2.1. JavaFX's Observable API
+
+FluidFX's reactivity is built on top of JavaFX's Observable API, which offers classes like ObjectProperty, ObjectExpression and ObjectBinding.
+These objects can be bound into and out of controls, and will update their values reactively. Here is an example of that, in pure JavaFX:
+
+```java
+TextField tf = new TextField();
+Labeled lbl = new Label();
+lbl.textProperty().bind(tf.textProperty());
+```
+
+Here, the textProperty of the Label is bound to the textProperty of the TextField - that is, when the text of the Label is updated
+to match that one of the TextField.
+
+And we can also do that bidirectionally - that is, create a Property that is updated and updates the Property of a control.
+For example:
+
+```java
+TextField tf1 = new TextField();
+TextField tf2 = new TextField();
+
+tf1.textProperty().bindBidirectional(tf2.textProperty());
+```
+
+## 2.1. JavaFX's Observable API in FluidFX
+
+As I said, FluidFX leverages this existing API from JavaFX, and builds on top of it - just like it did with the regular properties.
+For every JavaFX Node bindable property, we have three methods we can use, with the prefixes `in`, `out` and `bi`.
+
+`out` binds from the component **out** to a property.
+`in` binds the value of a property **in**to the component.
+`bi` binds the value **bi**directionally.
+
+Here is an example with textProperty():
+```java
+StringProperty prop = new SimpleStringProperty("");
+new VGroup().wChildren(
+    new FTextField().outText(prop), // Attention to the `out` binding here!
+    new FLabel().inText(prop), 
+    new FButton("Reset").onAction(e -> prop.set("")) // this will update the text in the label, but NOT in the textfield.
+)
+```
+
+This works - except for the button. That is because of the `out` binding on FTextField - it only updates the variable from the text, not the text from the variable.
+But if we want to be able to modify the text inside the TextField via the `prop` StringProperty, we can just bind bidirectionally:
+
+```java
+StringProperty prop = new SimpleStringProperty("");
+new VGroup().wChildren(
+    new FTextField().biText(prop), // Attention to the `bi` binding here!
+    new FLabel().inText(prop),
+    new FButton("Reset").onAction(e -> prop.set("")) // this will update the text in the label AND in the textfield.
+);
+```
+
+#### 2.2. Property Mappers
+
+This bindings API is great for binding with "standard" types (String, Int, Boolean, etc), but it may not always work when we need to
+_change_ the types, or want to _map_ from something not standard to something standard (e.g. from a POJO to a String).
+
+Let's suppose, for instance, that we want to map a Boolean variable reactively into text in a label.
+Currently, there is no way to bind a BooleanProperty into a StringProperty, so that seems impossible. However, FluidFX
+provides a handy set of classes to help us out: `Mapper`s and the `PropertyConverter` class.
+
+First, the `PropertyConverter`: it has a set of overloaded asString functions, which convert pretty much all Java primitive wrappers
+into StringProperties.
+For example:
+
+```java
+IntegerProperty count = new SimpleIntegerProperty(0);
+new VGroup().wChildren(
+    FSpinner.intSpinner(0, 10, 0).outValue(count.asObject()),
+    new FLabel().inText(PropertyConverter.asString(count))
+);
+```
+
+Second, the Mapper classes. You can use `.mapAsString()` to map as a stirng, or `.map()` to map as any ObjectProperty.
+
+```java
+BooleanProperty selected = new SimpleBooleanProperty(false);
+new VGroup().wChildren(
+    new FCheckBox().outSelected(selected),
+    new FLabel().inText(BooleanMapper.mapAsString(selected, "is selected (:", "is not selected :("))
+);
+```
+
+And you can also map lists to components if you want, with `ListMapper`:
+```java
+ObservableList<String> items = FXCollections.observableArrayList();
+new VGroup().wChildren(
+    new FButton("Add").onAction(e -> items.add("item")),
+    new VGroup().inChildren(ListMapper.map(items, FLabel::new)) // We can also use in, out and bi with the Children property!
+)
+```
+
+And finally, you can always just use JavaFX's Bindings class to create more complex bindings.
+
+```java
+IntegerProperty count = new SimpleIntegerProperty(0);
+
+new VGroup().wChildren(
+    FSpinner.intSpinner(0, 10, 0).biValue(count.asObject()),
+    new FLabel().inText(Bindings.createStringBinding(() -> {
+        if (count.get() > 5) return "Count is " + count.get() + ". That's a lot!";
+        return "Count is " + count.get() + ".";
+        }, count)
+    )
+)
+```
+
+#### 2.3. 

@@ -4,9 +4,15 @@ import dev.mgcvale.fluidfx.components.controls.*;
 import dev.mgcvale.fluidfx.components.groups.*;
 import dev.mgcvale.fluidfx.components.layout.Pad;
 import dev.mgcvale.fluidfx.components.layout.Spacers;
+import dev.mgcvale.fluidfx.reactive.BooleanMapper;
 import dev.mgcvale.fluidfx.reactive.ListMapper;
+import dev.mgcvale.fluidfx.reactive.PropertyConverter;
 import javafx.application.Application;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.StringExpression;
 import javafx.beans.property.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -17,29 +23,18 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) {
+        IntegerProperty count = new SimpleIntegerProperty(0);
+        BooleanProperty selected = new SimpleBooleanProperty(false);
         ObservableList<String> items = FXCollections.observableArrayList();
 
         Scene scene = new Scene(
-
-            new VGroup().wStyleClass("p-6", "spacing-3").wChildren(
-
-                new FLabel("Login").wStyleClass("text-6").wTextAlignment(TextAlignment.CENTER),
-
-                new VGroup().wSpacing(8).wChildren(
-                    new FLabel("Username"),
-                    new FTextField().wPrompt("Enter your username").wPrefWidth(200),
-
-                    Spacers.vSpacer(24), // we can also use fixed sizes of bindings on spacers
-
-                    new FLabel("Password"),
-                    new FTextField().wPrompt("Enter your password").wPrefWidth(200)
-                ).vgrow(),
-
-                new HGroup().justifyCenter().wStyleClass("spacing-3", "pb-4").wChildren(
-                    new FButton("Cancel").wDisable(true),
-
-                    new FButton("Login")
-                ).wPadding(Pad.top(16))
+            new VGroup().wChildren(
+                FSpinner.intSpinner(0, 10, 0).biValue(count.asObject()),
+                new FLabel().inText(Bindings.createStringBinding(() -> {
+                        if (count.get() > 5) return "Count is " + count.get() + ". That's a lot!";
+                        return "Count is " + count.get() + ".";
+                    }, count)
+                )
             )
         );
 
