@@ -6,9 +6,7 @@ Welcome to FluidFX - the fluent, reactive UI framework for JavaFX.
 
 -  **[Getting Started](getting-started/)** - New to FluidFX? Start here
 -  **[API Reference](api/)** - Complete API documentation
--  **[Guides](guides/)** - In-depth guides and best practices
 -  **[Examples](examples/)** - Code examples and complete apps
--  **[Tutorials](tutorials/)** - Step-by-step learning paths
 
 ## Why FluidFX?
 

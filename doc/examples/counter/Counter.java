@@ -1,4 +1,3 @@
-package dev.mgcvale.fluidfx;
 
 import dev.mgcvale.fluidfx.components.controls.*;
 import dev.mgcvale.fluidfx.components.groups.*;
@@ -8,7 +7,7 @@ import javafx.beans.property.*;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Counter extends Application {
 
     @Override
     public void start(Stage stage) {
@@ -18,7 +17,7 @@ public class Main extends Application {
             new VGroup().wStyleClass("p-2", "spacing-1", "align-tc").wChildren(
                 new FLabel().inText(Bindings.createStringBinding(() -> "Count is " + count.get(), count)),
 
-                new HGroup().justifyCenter().wSpacing(8).wChildren(
+                new HGroup().justifyCenter().wStyleClass("spacing-2").wChildren(
                     new FButton("Increment").onAction(e -> count.set(count.get() + 1)),
                     new FButton("Decrement").onAction(e -> count.set(count.get() - 1)),
                     new FButton("Reset").onAction(e -> count.set(0))

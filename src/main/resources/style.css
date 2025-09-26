@@ -46,7 +46,26 @@
 .pref-h-192 { -fx-pref-height: 768px; }
 .pref-h-256 { -fx-pref-height: 1024px; }
 
+.text-align-left    { -fx-text-alignment: left; }
+.text-align-center  { -fx-text-alignment: center; }
+.text-align-right   { -fx-text-alignment: right; }
+.text-align-justify { -fx-text-alignment: justify; }
 
+.align-tl { -fx-alignment: top-left; }
+.align-tc { -fx-alignment: top-center; }
+.align-tr { -fx-alignment: top-right; }
+
+.align-cl { -fx-alignment: center-left; }
+.align-c  { -fx-alignment: center; }
+.align-cr { -fx-alignment: center-right; }
+
+.align-bl { -fx-alignment: bottom-left; }
+.align-bc { -fx-alignment: bottom-center; }
+.align-br { -fx-alignment: bottom-right; }
+
+.text-input-left   { -fx-alignment: center-left; }
+.text-input-center { -fx-alignment: center; }
+.text-input-right  { -fx-alignment: center-right; }
 
 .spacing-0\.5 { -fx-spacing: 2px; }
 .spacing-1 { -fx-spacing: 4px; }
