@@ -70,7 +70,7 @@ For example, let's suppose you want a Header HBox where some elements are all th
 the way to the right, kind of like this:
 ```
 ========================================================
-| Element1 Element                 Element 3 Element 4 |
+| Element1 Element2                 Element 3 Element 4 |
 ========================================================
 ```
 To do this, we can create three HBoxes: one for the Header, one for elements 1 and 2, and a final one for element 3 and 4.
@@ -101,8 +101,8 @@ new HGroup().spaceAround().wChildren(
 )
 ```
 
-- `.spaceAround()` creates HSpacers between every element, but we also have other options. Here is a quick summary of what we can use:
-- `.spaceAround()` - spacers between every element
+`.spaceAround()` creates HSpacers between every element, but we also have other options. Here is a quick summary of what we can use:
+- `.spaceAround()` - spacers between every element (as said before)
 - `.spaceBetween()` - spacers between every element, except for the start/end
 - `.justifyCenter()` - spacers in the start and end of the children, centering everything.
 - `.justifyStart()` - one spacer in the end of the children, to push everything to the start.
